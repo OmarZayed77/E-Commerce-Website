@@ -25,6 +25,7 @@ class App extends Component {
 
   render() {
     let routes = (
+      <>
       <Switch>
           <Route path="/login" exact component={UserForm}/>
           <Route path="/products/:id" component={Details}/>
@@ -33,6 +34,8 @@ class App extends Component {
           <Redirect from="/" to="/products"/>
           <Route render={()=>{return "not found!!!"}}/>
       </Switch>
+      <footer>&copy; COPYRIGHTS goes to Omar Zayed</footer>
+      </>
     );
     if(this.props.isLoggedIn)
     {
