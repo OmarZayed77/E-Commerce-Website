@@ -22,7 +22,11 @@ const Details = (props) => {
             return (<span key={index} rel="tag" >, {t}</span>)
         });
     }
-
+    let category = null;
+    if(props.product.category)
+    {
+        category = (<span rel="tag" >{props.product.category.name}</span>);
+    }
     return(
         <div className="product-details container">
             <section className="product-details__main">
@@ -52,7 +56,7 @@ const Details = (props) => {
                         {props.product.description}
                     </p>
                     <div className="product-details__meta">
-                        Category: <span rel="tag" >{props.product.category.name}</span>{tags}.
+                        Category: {category}{tags}.
                     </div>
                 </div>
             </section>

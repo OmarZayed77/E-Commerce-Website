@@ -2,7 +2,7 @@ import * as actions from './actions/actions';
 
 const initialState = {
     products: [],
-    product: {},
+    selectedProduct: {},
     categories: [],
     isLoggedIn: false,
     token: "",
