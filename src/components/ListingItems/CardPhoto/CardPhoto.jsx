@@ -26,7 +26,7 @@ const CardPhoto = (props) => {
     );
   }
   let deleteIcon = null;
-  if(props.isLoggedIn){
+  if(props.isLoggedIn && props.product.addedBy === props.userId){
         deleteIcon= (<span onClick={() => { props.deleteProduct(props.product._id, props.token) }} ><i className="fas fa-trash-alt"></i></span>);
   }
   return (
@@ -59,7 +59,8 @@ const CardPhoto = (props) => {
 const mapStatetoprops = state => {
   return {
     token: state.token,
-    isLoggedIn: state.isLoggedIn
+    isLoggedIn: state.isLoggedIn,
+    userId: state.userId
   }
 }
 
