@@ -12,7 +12,7 @@ class UserProducts extends Component{
     }
     componentDidMount(){
         productsDB.getUserProducts(this.props.userId, this.props.token)
-        .then(res => this.setState({products: res.data}))
+        .then(res =>{ this.setState({products: res.data}); console.log(res)})
         .catch(console.error)
     }
     render(){

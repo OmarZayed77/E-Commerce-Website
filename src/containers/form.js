@@ -13,7 +13,7 @@ class Form extends Component {
                 name: '',
                 image: 'https://obamawhitehouse.archives.gov/sites/default/files/image/image_file/50-50-page-header.jpg',
                 description: '',
-                categoryId: '',
+                category: '',
                 addedBy: '',
                 price: '',
                 discount: '',
@@ -207,7 +207,7 @@ class Form extends Component {
                             </div>
                             <div className="form-group">
                                 <label >Category</label>
-                                <select className="form-control" name="categoryId" defaultValue={""}  onChange={this.dataChanged}>
+                                <select className="form-control" name="category" defaultValue={""}  onChange={this.dataChanged}>
                                     <option value="" disabled>Select A Category</option>
                                     {categories}
                                 </select>

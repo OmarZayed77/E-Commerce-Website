@@ -65,15 +65,9 @@ export const getProductByIdSuccess = (product) => {
 
 export const getProductById = (id) => {
     return dispatch => {
-        let product;
         productsDB.getById(id)
         .then(res => {
-            product = res.data;
-            return categoriesDB.getById(product.categoryId);
-        })
-        .then(res => {
-            product.category = res.data.name;
-            dispatch(getProductByIdSuccess(product));
+            dispatch(getProductByIdSuccess(res.data));
         })
         .catch(console.error);
     }

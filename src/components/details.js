@@ -52,7 +52,7 @@ const Details = (props) => {
                         {props.product.description}
                     </p>
                     <div className="product-details__meta">
-                        Category: <span rel="tag" >{props.product.category}</span>{tags}.
+                        Category: <span rel="tag" >{props.product.category.name}</span>{tags}.
                     </div>
                 </div>
             </section>
