@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
 import Listing from '../containers/ProductListing';
-import * as productsDB from '../DBHelper/product';
 import { connect } from 'react-redux';
 
 class UserProducts extends Component{
@@ -11,9 +10,13 @@ class UserProducts extends Component{
         };
     }
     componentDidMount(){
-        productsDB.getUserProducts(this.props.userId, this.props.token)
-        .then(res =>{ this.setState({products: res.data}); console.log(res)})
-        .catch(console.error)
+        const userProducts = this.props.products.filter(p => p.addedBy === this.props.userId);
+        this.setState({products: userProducts});      
+    }
+    componentDidUpdate()
+    {
+        const userProducts = this.props.products.filter(p => p.addedBy === this.props.userId);
+        if(this.state.products.length !== userProducts.length) this.setState({products: userProducts});      
     }
     render(){
         let products= (<Listing userProducts={this.state.products}></Listing>);
