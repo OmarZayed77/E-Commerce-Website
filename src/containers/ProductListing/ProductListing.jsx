@@ -20,16 +20,28 @@ class ProductListing extends React.Component {
   pageClicked(value){
     this.pageChanedHndlr(value);
   }
+  resetPage(){
+    this.setState({ Page: 1 });
+
+  }
   componentDidMount(){
     this.props.getAllProducts();
     this.props.getAllCategories();
   }
   render() {
         let list = (<ListingItems pageClicked={(value) => this.pageClicked.bind(this,value)} max_items={this.state.max_items} pageChanedHndlr={this.pageChanedHndlr.bind(this)} page={this.state.Page} products={this.props.products} />) 
-        if(this.props.userProducts) list = (<ListingItems pageClicked={(value) => this.pageClicked.bind(this,value)} max_items={this.state.max_items} pageChanedHndlr={this.pageChanedHndlr.bind(this)} page={this.state.Page} products={this.props.userProducts} />);
+        let filters = null;
+        if(this.props.userProducts) 
+        {
+          list = (<ListingItems pageClicked={(value) => this.pageClicked.bind(this,value)} max_items={this.state.max_items} pageChanedHndlr={this.pageChanedHndlr.bind(this)} page={this.state.Page} products={this.props.userProducts} />);
+        }
+        else 
+        {
+          filters = (<Filters reset={this.resetPage.bind(this)}/>);
+        }
         return (
       <div className="container" >
-        <Filters />
+        {filters}
         {list}
       </div>
     );

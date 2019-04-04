@@ -10,6 +10,10 @@ export const getById = (productId) => {
     return Axios.get(`${url}/products/${productId}`);
 }
 
+export const getByCategoryId = (categoryId) => {
+    return Axios.get(`${url}/categories/${categoryId}/products`);
+}
+
 export const getUserProducts = (userId, token) => {
     return Axios.get(`${url}/users/${userId}/products`, {headers: {Authorization: token}});
 }

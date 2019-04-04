@@ -21,6 +21,15 @@ export const getAllProducts = () => {
     }
 }
 
+export const getProductsByCategory = (categoryId) => {
+    return dispatch => {
+        productsDB.getByCategoryId(categoryId).then(res => {
+            dispatch({type: GET_ALL_PRODUCTS, payload: res.data});
+        })
+        .catch(console.log);
+    }
+}
+
 export const getAllCategories = () => {
     return dispatch => {
         categoriesDB.getAllCategories().then(res => {

@@ -25,7 +25,8 @@ class UserProducts extends Component{
 const mapStateToProps = state => {
     return {
         token: state.token,
-        userId: state.userId
+        userId: state.userId,
+        products: state.products
     }
 } 
 
